@@ -1,0 +1,49 @@
+.child{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-left: 10%;
+    align-items: center;
+}
+
+.child > *{
+    flex: 0 0 5%;
+}
+hr{
+    color: #606060;
+    width: 100%;
+    margin-left: 10%;
+    margin: 0em;
+}
+
+.icons{
+    display: flex;
+    color: #dfdfdf;
+    font-size: larger;
+}
+
+.icons > * :hover{
+    color: #525252;
+}
+
+.box{
+    min-width:8px;
+    content: "";
+    min-height: 100%;
+    background-color:#e7e6e6;
+    height: 40px;
+    margin-left: 10%;
+}
+
+input[type=text] {
+    width: 100%;
+    border: 0px solid #ccc;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    margin-left: 220%;
+    height: 40px;
+    min-height: 100%;
+  }
