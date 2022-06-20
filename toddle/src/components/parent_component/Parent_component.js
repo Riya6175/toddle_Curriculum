@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import { Draggable } from "react-drag-reorder";
 import Child_component from "../Child_component/Child_component";
 import {MdAddCircleOutline} from "react-icons/md";
 import { BiMove,BiRightArrowAlt,BiLeftArrowAlt } from 'react-icons/bi';
@@ -68,7 +69,18 @@ export default function Parent_component() {
           </div>
         </div>
         <hr></hr>
-        <Child_component/>
+        <div className="dragFlex">
+          <Draggable>
+            <Child_component props={{"data":"first"}}/>
+            <Child_component props={{"data":"second"}}/>
+            <Child_component props={{"data":"third"}}/>
+            <Child_component props={{"data":"fourth"}}/>
+          </Draggable>
+        </div>
+        
+        {/* <div className="dragFlex"> */}
+
+        {/* </div> */}
         {standard}
         <button className="add-button" onClick={onAddStandard}><a>
           <MdAddCircleOutline style={{"fontSize":"1.3rem","paddingRight":"2%"}}/>
