@@ -54,3 +54,9 @@ hr{
     font-size: 1rem;
     
 }
+
+.dragFlex{
+    display: flex;
+    flex-direction: column;
+
+}
