@@ -1,13 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import "./child.css";
 import { BiMove,BiRightArrowAlt,BiLeftArrowAlt } from 'react-icons/bi';
 import {RiDeleteBin6Fill} from 'react-icons/ri';
 import {data} from "../../data";
 
 export default function Child_component(props) {
+  const inputRef = useRef(null);
 
-    console.log(props.props.data)
-    console.log(props.props.level)
+    // console.log(props.props.data)
+    // console.log(props.props.level)
 
   return (
     <>
@@ -24,7 +25,7 @@ export default function Child_component(props) {
       </div>
 
       <div className='Text'>
-          {props.props && <input type="text" id="Topic" className={props.props.level === 0 ? 'Topic' : props.props.level === 1 ? 'topic_child' : 'topic_subchild'} name="Topic" placeholder="Text" size="2500" defaultValue= {props.props.data}></input>}
+          {props.props && <input type="text" id="topic" ref={inputRef} className={props.props.level === 0 ? 'Topic' : props.props.level === 1 ? 'topic_child' : 'topic_subchild'} name="Topic" placeholder="Text" size="2500" defaultValue= {props.props.data}></input>}
           {/* <input type="text" id="Topic" name="Topic" placeholder="Text" size="2500" defaultValue={"props.props.data"}></input> */}
       </div>
       </div>

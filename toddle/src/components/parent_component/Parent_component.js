@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useEffect, useRef} from "react";
 import { Draggable } from "react-drag-reorder";
 import Child_component from "../Child_component/Child_component";
 import {MdAddCircleOutline} from "react-icons/md";
@@ -10,6 +10,20 @@ export default function Parent_component() {
 
   const [standard, setStandard] = useState([]);
   const [show, setShow] = useState(true);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // console.log(document.getElementById('childElements'))
+    // var clsElements = document.querySelectorAll("input");
+    console.log(inputRef)
+    // console.log("current",inputRef.current.childNodes)
+    const newlist = inputRef.current.childNodes
+    // console.log(newlist)
+    // console.log("hello",inputRef.current.children[0])
+    //console.log(trial)
+    //console.log(inputRef.current.childNodes[1].childNodes[0].childNodes[0].childNodes[2].childNodes[0].defaultValue)
+
+  }, [])
 
   const deleteItem = (index) => {
    setShow(false);
@@ -29,7 +43,7 @@ export default function Parent_component() {
             &nbsp;
         </div>
         <div className='Text-child'>
-            <input type="text" id="Topic" className="Topic" name="Topic" placeholder="Text" size="2500"></input>
+            <input type="text" id="topic" className="Topic" name="Topic" placeholder="Text" size="2500"></input>
         </div>
         </div>
         <hr></hr>
@@ -69,7 +83,7 @@ export default function Parent_component() {
           </div>
         </div>
         <hr></hr>
-        <div className="dragFlex">
+        <div id="childElements" className="dragFlex">
           <Draggable>
             <Child_component props={{"data":"first", "level":0}}/>
             <Child_component props={{"data":"first-child","level":1}}/>

@@ -5,7 +5,7 @@
     width: 80%;
     margin-left: 10%;
     align-items: center;
-    height: 25px;
+    height: 40px;
 }
 
 .child > *{
@@ -32,25 +32,25 @@ hr{
     min-width:8px;
     content: "";
     min-height: 100%;
-    background-color:#e7e6e6;
-    height: 25px;
+    background-color:#f9f9f9;
+    height: 40px;
     margin-left: 10%;
 }
 
 .box-child{
-    min-width:8px;
+    min-width:6px;
     content: "";
     min-height: 100%;
-    background-color:#d1d1d1;
-    height: 25px;
+    background-color:#f6f6f6;
+    height: 40px;
     margin-left: 12%;
 }
 .box-child2{
-    min-width:8px;
+    min-width:6px;
     content: "";
     min-height: 100%;
-    background-color:#b9b9b9;
-    height: 25px;
+    background-color:#f5f5f5;
+    height: 40px;
     margin-left: 14%;
 }
 .Topic{
@@ -76,11 +76,11 @@ hr{
     resize: none;
     outline: none;
     margin-left: 180%;
-    height: 25px;
+    height: 40px;
     min-height: 100%;
     font-size: 0.8rem;
     color: black;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   .topic_subchild{
@@ -91,10 +91,10 @@ hr{
     resize: none;
     outline: none;
     margin-left: 190%;
-    height: 25px;
+    height: 40px;
     min-height: 100%;
     font-size: 0.8rem;
-    color: #f75a5a;
+    color: #c2c2c2;
     font-weight: 700;
   }
 
