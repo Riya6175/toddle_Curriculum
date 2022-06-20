@@ -60,3 +60,18 @@ hr{
     flex-direction: column;
 
 }
+
+.Topic{
+    width: 2000%;
+    border: 0px solid #ccc;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    margin-left: 180%;
+    height: 40px;
+    min-height: 100%;
+    font-size: 1rem;
+    color: #43d4d8;
+    font-weight: 700;
+  }

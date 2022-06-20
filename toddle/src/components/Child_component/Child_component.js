@@ -5,29 +5,31 @@ import {RiDeleteBin6Fill} from 'react-icons/ri';
 import {data} from "../../data";
 
 export default function Child_component(props) {
-    const [children, setChildren] = useState([]);
-    const [child,isChild] = useState(true);
-    console.log(props.props.data)
-  return (
-    <div>
-                    <div className="child">
-                    <div className='icons'>
-                        <BiMove/>
-                        <BiLeftArrowAlt/>
-                        <BiRightArrowAlt/>
-                        <RiDeleteBin6Fill/>
-                    </div>
-                    
-                    <div className='box'>
-                        &nbsp;
-                    </div>
 
-                    <div className='Text'>
-                        {props.props && <input type="text" id="Topic" name="Topic" placeholder="Text" size="2500" defaultValue= {props.props.data}></input>}
-                        {/* <input type="text" id="Topic" name="Topic" placeholder="Text" size="2500" defaultValue={"props.props.data"}></input> */}
-                    </div>
-                    </div>
-                    <hr></hr>
+    console.log(props.props.data)
+    console.log(props.props.level)
+
+  return (
+    <>
+    <div>
+      <div className="child">
+      <div className='icons'>
+          <BiMove/>
+          <BiLeftArrowAlt/>
+          <BiRightArrowAlt/>
+          <RiDeleteBin6Fill/>
+      </div>
+      <div className={props.props.level === 0 ? 'box' : props.props.level === 1 ? 'box-child' : 'box-child2'}>
+          &nbsp;
+      </div>
+
+      <div className='Text'>
+          {props.props && <input type="text" id="Topic" className={props.props.level === 0 ? 'Topic' : props.props.level === 1 ? 'topic_child' : 'topic_subchild'} name="Topic" placeholder="Text" size="2500" defaultValue= {props.props.data}></input>}
+          {/* <input type="text" id="Topic" name="Topic" placeholder="Text" size="2500" defaultValue={"props.props.data"}></input> */}
+      </div>
+      </div>
+      <hr></hr>
     </div>
+   </>
   )
 }

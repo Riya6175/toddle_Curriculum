@@ -29,7 +29,7 @@ export default function Parent_component() {
             &nbsp;
         </div>
         <div className='Text-child'>
-            <input type="text" id="Topic-child" name="Topic" placeholder="Text" size="2500"></input>
+            <input type="text" id="Topic" className="Topic" name="Topic" placeholder="Text" size="2500"></input>
         </div>
         </div>
         <hr></hr>
@@ -71,10 +71,13 @@ export default function Parent_component() {
         <hr></hr>
         <div className="dragFlex">
           <Draggable>
-            <Child_component props={{"data":"first"}}/>
-            <Child_component props={{"data":"second"}}/>
-            <Child_component props={{"data":"third"}}/>
-            <Child_component props={{"data":"fourth"}}/>
+            <Child_component props={{"data":"first", "level":0}}/>
+            <Child_component props={{"data":"first-child","level":1}}/>
+            <Child_component props={{"data":"seocnd-child","level":1}}/>
+            <Child_component props={{"data":"firstchild2","level":2}}/>
+            <Child_component props={{"data":"second","level":0}}/>
+            <Child_component props={{"data":"second-child","level":1}}/>
+            <Child_component props={{"data":"third","level":0}}/>
           </Draggable>
         </div>
         
