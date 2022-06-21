@@ -10,16 +10,19 @@ import "./parent.css"
 export default function Parent_component() {
 
   const dataset = 
-  [{ïd:1,"data":"first", "level":0},
-   {ïd:2,"data":"first-child","level":1},
-   {ïd:3,"data":"seocnd-child","level":1},
-   {ïd:4,"data":"firstchild2","level":2},
-   {ïd:5,"data":"second","level":0},
-   {ïd:6,"data":"second-child","level":1}
+  [{id:1,"data":"first", "level":0},
+   {id:2,"data":"first-child","level":1},
+   {id:3,"data":"seocnd-child","level":1},
+   {id:4,"data":"firstchild2","level":2},
+   {id:5,"data":"second","level":0},
+   {id:6,"data":"second-child","level":1}
 ]
 
   const [standard, setStandard] = useState([]);
   const [show, setShow] = useState(0);
+  const [dragData,setDragData] = useState([dataset])
+  const [leftDrag ,setLeftDrag] = useState(null)
+  const [rightDrag ,setRightDrag] = useState(null)
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -73,6 +76,29 @@ export default function Parent_component() {
     setShow(show + 1)
   }
 
+  const onDrag = (e,draggeddata) => {
+    e.preventDefault();
+    setShow(show + 1)
+    setDragData(draggeddata)
+    }
+
+  const onDragEnter = (e) => {
+    setShow(show + 1)
+  }
+
+  const onFileDrop = (e) => {
+    setDragData(dataset.filter(task => task.id !== dragData.id)) 
+    console.log("onFileDrop");
+    setShow(show + 1)
+  }
+
+  const onMoveChild = () => {
+    console.log(rightDrag)
+  }
+
+  const onMoveParent = () => {
+    console.log(leftDrag)
+  }
 
   return (
     <div className="parent">
@@ -105,11 +131,15 @@ export default function Parent_component() {
             {dataset.map((data) => {
             return (
               <>
-              <div className="child" key={data.id}>
+              <div className="child" key={data.id} onDrag={(event) => this.onDrag(event, data)} onDrop={onFileDrop} >
               <div className='icons'>
                   <BiMove/>
-                  <BiLeftArrowAlt/>
-                  <BiRightArrowAlt/>
+                  <div onClick={()=>(setLeftDrag(data.id))}>
+                    <BiLeftArrowAlt/>
+                  </div>
+                  <div onClick={()=>(setLeftDrag(data.id))}>
+                    <BiRightArrowAlt/>
+                  </div>
                   <RiDeleteBin6Fill/>
               </div>
               <div className={data.level === 0 ? 'box' : data.level === 1 ? 'box-child' : 'box-child2'}>
@@ -117,7 +147,7 @@ export default function Parent_component() {
               </div>
         
               <div className='Text'>
-                  {data.data && <input type="text" id="topic"  className={data.level === 0 ? 'Topic' : data.level === 1 ? 'topic_child' : 'topic_subchild'} name="Topic" placeholder="Text" size="2500" defaultValue= {data.data}></input>}
+                  {data.data && <input type="text" id={data.id+'map'}  className={data.level === 0 ? 'Topic' : data.level === 1 ? 'topic_child' : 'topic_subchild'} name="Topic" placeholder="Text" size="2500" defaultValue= {data.data}></input>}
                   {/* <input type="text" id="Topic" name="Topic" placeholder="Text" size="2500" defaultValue={"props.props.data"}></input> */}
               </div>
               </div>
